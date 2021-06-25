@@ -18,7 +18,7 @@ Returns the ipfs|ipns base path for the application if currently loaded via a ga
 Returns the current base path which with IPFS & IPNS detection.
 
 Example:
-- without IPFS: `geBase() => '/'` 
+- without IPFS: `getBase() => '/'` 
 - with IPFS: `getBase() => '/ipfs/ipns/{hash|domain}/'`
 
 ### Usage with Vue Router
