@@ -16,7 +16,9 @@
     "build:esm": "tsc",
     "build:cjs": "tsc --target es2015 --module commonjs --outDir dist/cjs",
     "build": "npm run clean && npm run build:esm & npm run build:cjs",
-    "start": "npm run clean && tsc --watch"
+    "start": "npm run clean && tsc --watch --sourceMap",
+    "prepublishOnly": "npm run build",
+    "release": "npx git-ensure -a && npx bumpp --commit --tag --push"
   },
   "repository": {
     "type": "git",
@@ -32,6 +34,9 @@
   ],
   "author": "cwaring",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
   "bugs": {
     "url": "https://github.com/cwaring/ipfs-base/issues"
   },

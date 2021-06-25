@@ -4,7 +4,6 @@
     "module": "esnext",
     "moduleResolution": "node",
     "strict": true,
-    "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
     "noUnusedLocals": true,
