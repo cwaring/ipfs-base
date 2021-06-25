@@ -1,6 +1,6 @@
 {
   "name": "ipfs-base",
-  "version": "1.0.0",
+  "version": "1.0.1-beta.1",
   "description": "Utilities to configure Web3 apps for IPFS",
   "main": "./dist/cjs/index.js",
   "module": "./dist/esm/index.js",
