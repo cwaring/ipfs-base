@@ -17,8 +17,7 @@
     "build:cjs": "tsc --target es2015 --module commonjs --outDir dist/cjs",
     "build": "npm run clean && npm run build:esm & npm run build:cjs",
     "start": "npm run clean && tsc --watch --sourceMap",
-    "prepublishOnly": "npm run build",
-    "release": "npx git-ensure -a && npx bumpp --commit --tag --push"
+    "release": "npm run build && npx git-ensure -a && npx bumpp --commit --tag --push"
   },
   "repository": {
     "type": "git",
