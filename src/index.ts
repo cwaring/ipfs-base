@@ -1,7 +1,7 @@
 type Base = string | undefined
 type basePath = string | undefined
 
-const checkBase = (basePath?: basePath) => {
+const validBase = (basePath?: basePath) => {
   if (basePath) {
     const baseRx = /^\/\w.*[^/]$/
     if (!basePath.match(baseRx)) {
@@ -14,10 +14,11 @@ const checkBase = (basePath?: basePath) => {
 
 // construct current base path for ipfs/ipns variants
 const getBase = (basePath?: basePath): Base => {
-  if (typeof window !== 'undefined' && checkBase(basePath)) {
+  if (typeof window !== 'undefined' && validBase(basePath)) {
     const ipfsRx = /^(\/(?:ipfs|ipns)\/[^/]+)/
     const pathname = window.location.pathname
-    return basePath ? ((pathname.match(ipfsRx) || [])[1] || '') + (basePath || '') : basePath
+    const ipfsBasePath = (pathname.match(ipfsRx) || [])[1] || ''
+    return basePath ? (ipfsBasePath + basePath) : ipfsBasePath || undefined
   }
 }
 
