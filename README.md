@@ -12,18 +12,27 @@ import { createBase, getBase } from 'ipfs-base'
 ```
 
 ### `createBase: () => string | undefined`
-Returns the ipfs|ipns base path for the application if currently loaded via a gateway url and injects a `<base href={base} />` element into the head of the DOM.
+Returns the ipfs|ipns base path for the application if currently loaded via a gateway url and injects a `<base href={base} />` element into the head of the DOM if an IPFS gateway URL is detected.
 
 ### `getBase: () => string | undefined`
 Returns the current base path which with IPFS & IPNS detection.
 
 Example:
-- without IPFS: `getBase() => '/'` 
-- with IPFS: `getBase() => '/ipfs/ipns/{hash|domain}/'`
+- without IPFS: `getBase() => undefined`
+- with IPFS: `getBase() => '/ipfs/ipns/{hash|domain}'`
 
 ### Usage with Vue Router
 
-TODO:
+```js
+import { createRouter, createWebHistory } from 'vue-router'
+import { createBase } from 'ipfs-base'
+
+const router = createRouter({
+  history: createWebHistory(createBase()),
+  routes
+})
+```
+
 
 ### Usage with React Router
 
