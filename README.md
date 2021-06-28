@@ -12,7 +12,7 @@ import { createBase, getBase } from 'ipfs-base'
 ```
 
 ### `createBase: () => string | undefined`
-Returns the ipfs|ipns base path for the application if currently loaded via a gateway url and injects a `<base href={base} />` element into the head of the DOM if an IPFS gateway URL is detected.
+Returns the ipfs|ipns base path for the application if currently loaded via a gateway url and injects a `<base href={base} />` element into the head of the DOM.
 
 ### `getBase: () => string | undefined`
 Returns the current base path which with IPFS & IPNS detection.
