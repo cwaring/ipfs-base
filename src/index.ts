@@ -14,6 +14,9 @@ const validBase = (basePath?: basePath) => {
 
 // construct current base path for ipfs/ipns variants
 const getBase = (basePath?: basePath): Base => {
+  // remove trailing slashes from basepath (if it exists)
+  if (basePath) basePath.replace(/\/+$/g, '')
+
   if (typeof window !== 'undefined' && validBase(basePath)) {
     const ipfsRx = /^(\/(?:ipfs|ipns)\/[^/]+)/
     const pathname = window.location.pathname
